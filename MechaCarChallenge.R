@@ -1,0 +1,28 @@
+# Load tidyverse library
+library(tidyverse)
+# Load MechaCar_mpg.csv
+mechacar_data <- read.csv('MechaCar_mpg.csv') #import dataset
+head(mechacar_data)
+# perform linear Regression using MPG as dependent
+# generate multiple linear regression model
+mpgReg = lm(mpg ~ vehicle_length + vehicle_weight  + spoiler_angle  + ground_clearance +
+     AWD,data=mechacar_data)
+mpgReg
+# generate summary statistics
+summary(mpgReg)
+
+# create an equation for each independent variables
+equation1=function(x){coef(mpgReg)[2]*x+coef(mpgReg)[1]+coef(mpgReg)[2]}
+equation2=function(x){coef(mpgReg)[3]*x+coef(mpgReg)[1]+coef(mpgReg)[2]}
+equation3=function(x){coef(mpgReg)[4]*x+coef(mpgReg)[1]+coef(mpgReg)[3]}
+equation4=function(x){coef(mpgReg)[5]*x+coef(mpgReg)[1]+coef(mpgReg)[4]}
+equation5=function(x){coef(mpgReg)[6]*x+coef(mpgReg)[1]+coef(mpgReg)[5]}
+
+# plotting regression of length and mpg
+plt <- ggplot(mpgReg,aes(x=vehicle_length,y=mpg)) #import dataset into ggplot2
+plt + geom_point()+ stat_function(fun=equation1,geom="line",color=scales::hue_pal()(2)[1]) +
+  geom_smooth(method="lm")
+# plotting regression of weight and mpg
+plt <- ggplot(mpgReg,aes(x=vehicle_weight,y=mpg)) #import dataset into ggplot2
+plt + geom_point()+ stat_function(fun=equation2,geom="line",color=scales::hue_pal()(2)[1]) +
+  geom_smooth(method="lm")
