@@ -27,7 +27,7 @@ plt <- ggplot(mpgReg,aes(x=vehicle_weight,y=mpg)) #import dataset into ggplot2
 plt + geom_point()+ stat_function(fun=equation2,geom="line",color=scales::hue_pal()(2)[1]) +
   geom_smooth(method="lm")
 
-######## Suspension Coil Analysis######## 
+######## Suspension Coil Analysis ######## 
 # Load Suspension_Coil.csv from folder
 suscoil_data <- read.csv('Suspension_Coil.csv') #import dataset
 head(suscoil_data)
@@ -47,3 +47,18 @@ lot_summary <- suscoil_data %>% group_by(Manufacturing_Lot) %>% summarize(Mean_P
 # box plots to show outliers
 plt <- ggplot(suscoil_data,aes(x=Manufacturing_Lot,y=PSI)) #import dataset into ggplot2
 plt + geom_boxplot(outlier.colour = "red", outlier.shape = 1) + theme(axis.text.x=element_text(angle=45,hjust=1)) #add boxplot and rotate x-axis labels 45 degrees
+
+######## T-Test ######## 
+# we can use geom_density() to visualize the entire population set
+plt <- ggplot(suscoil_data,aes(x=(PSI))) #import dataset into ggplot2
+plt + geom_density() #visualize distribution using density plot
+# important to use log10 to keep number low for better distribution
+
+# we can use sample to create a similar distribution to the full population
+sample_table <- suscoil_data %>% sample_n(50) #randomly sample 50 data points
+plt <- ggplot(sample_table,aes(x=(PSI))) #import dataset into ggplot2
+plt + geom_density() #visualize distribution using density plot
+# T test for comparing total dataset to sample dataset
+t.test((sample_table$PSI),mu=mean((suscoil_data$PSI))) #compare sample versus population means
+
+

@@ -45,21 +45,33 @@ I think that this linear model does not predict the mpg of the MechaCar prototyp
 #### Technical Analysis:
 We are given a dataset for suspension coil with the columns VehicleID, Manufacturing_Lot, and PSI. The purpose of this is quality control of the suspensions. The design specifications for the coils dictate that the variance of the coils must not exceed 100 pounds per square inch. See below for the total summary and the lot summary of the Mean, Median, Variance, and Standard Deviation of the PSI of the suspension.
 
-![Total Summary](https://github.com/lo7kyle/MechaCar_Statistical_Analysis/blob/main/Resources/mpg%20vs%20weight.png) 
-![Lot Summary](https://github.com/lo7kyle/MechaCar_Statistical_Analysis/blob/main/Resources/mpg%20vs%20length.png) 
+![Total Summary](https://github.com/lo7kyle/MechaCar_Statistical_Analysis/blob/main/Resources/total%20summary.PNG) 
+![Lot Summary](https://github.com/lo7kyle/MechaCar_Statistical_Analysis/blob/main/Resources/Lot%20summary.PNG) 
 
 When comparing the total with the 3 lots summary table we see that the mean and the median is similar. This shows that the lots share similar count of data and share similar spread of values. We then look at the variance or standard deviation and see that those numbers are a lot more different. We see that the standard deviation for lot 3 is the greatest. We can assume that this lot has outliers since the variance is so great. 
 
 #### Written Summary:
-When looking at the total summary, the suspension coils meet the manufactoring specs; however when we look at the lot summary we start seeing a noticeable difference between each lot and in the case of lot 3, failing specs. As talked about in the analysis, if the mean and median are similar, we can assume that the spread of values are not that far apart. With high variance we can assume that the data set has outliers or is skewed left or right. We can also assume that the data is not a normal distribution. I have plotted the box plots of the different lots and we can see that lot 3 has more outliers than that of lot 1 and 2. 
+When looking at the total summary, the suspension coils meet the manufacturing specs; however, when we look at the lot summary we start seeing a noticeable difference between each lot and in the case of lot 3, failing specs. As talked about in the analysis, if the mean and median are similar, we can assume that the spread of values are not that far apart. With high variance we can assume that the data set has outliers or is skewed left or right. We can also assume that the data is not a normal distribution. I have plotted the box plots of the different lots and we can see that lot 3 has more outliers than that of lot 1 and 2. 
 
 
-![Box Plots of Lots](https://github.com/lo7kyle/MechaCar_Statistical_Analysis/blob/main/Resources/mpg%20vs%20length.png) 
+![Box Plots of Lots](https://github.com/lo7kyle/MechaCar_Statistical_Analysis/blob/main/Resources/Boxplot%20of%20Lots.png) 
 
 
 ### T-Test on Suspension Coils
 #### Technical Analysis:
+The purpose of a t-test is to determine whether there is a statistical difference between the means of a sample dataset and a hypothesized population dataset. If we take the full population dataset and compare it to the sample of itself, we are checking if the dataset is normally distributed. If we take a sample dataset, the distribution should be similar to the full population dataset. Below are the plots of the sample and the population normal distribution. I used the base 10 log for a more consistent scaling when plotting because if the number used is too high, it is more prone to outlier influence.    
+
+![Normal Distribution Population](https://github.com/lo7kyle/MechaCar_Statistical_Analysis/blob/main/Resources/Boxplot%20of%20Lots.png) 
+![Normal Distribution Sample](https://github.com/lo7kyle/MechaCar_Statistical_Analysis/blob/main/Resources/Boxplot%20of%20Lots.png) 
+
+Looking at the console output between the sample and the population, we also see that the p-value is 0.6075 and the t value is 0.51. The greater the t value the greater the size of the difference relative to the variation in our sample data. In other words, we can see the T value as a value to describe degrees of freedom from 0 or the middle of the normal distribution. The P value tells us that we don't have enough evidence to reject the null hypothesis that states the two means are statistically similar. Looking at the lot comparisons we see that the P value for lot 1 and 2 have enough evidence for us to reject our null hypothesis and has a higher degree of freedom than lot 3. 
+
+
+![T-Test Pop vs Sample](https://github.com/lo7kyle/MechaCar_Statistical_Analysis/blob/main/Resources/Boxplot%20of%20Lots.png) 
+![T-Test Pop vs Lots](https://github.com/lo7kyle/MechaCar_Statistical_Analysis/blob/main/Resources/Boxplot%20of%20Lots.png) 
+
 #### Written Summary:
+Summarizing the analysis, we see that the t test of our sample and our population data shows that there isn't enough evidence to reject our null hypothesis. Looking back at the plots we see that both the sample and population normal distribution share similar shape however the sample might be more skewed to either the right or left depending on the sample. Comparing the 3 lots we see that lots 1 and 2 have enough evidence to reject our null hypothesis since they both have a p-value less than 0.05. This means lot 1 and 2 are statistically different than the population. When looking at lot 3 the p value is 0.15 and means we can't reject our null hypothesis and would mean that the two means are statistically similar.
 
 ### Study Design: MechaCar vs Competition
 #### Technical Analysis:
