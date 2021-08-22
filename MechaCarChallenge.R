@@ -26,3 +26,24 @@ plt + geom_point()+ stat_function(fun=equation1,geom="line",color=scales::hue_pa
 plt <- ggplot(mpgReg,aes(x=vehicle_weight,y=mpg)) #import dataset into ggplot2
 plt + geom_point()+ stat_function(fun=equation2,geom="line",color=scales::hue_pal()(2)[1]) +
   geom_smooth(method="lm")
+
+######## Suspension Coil Analysis######## 
+# Load Suspension_Coil.csv from folder
+suscoil_data <- read.csv('Suspension_Coil.csv') #import dataset
+head(suscoil_data)
+
+# total summary df using summarize on PSI column
+total_summary <- suscoil_data %>% summarize(Mean_PSI=mean(PSI),
+                                            Median_PSI=median(PSI),
+                                            Var_PSI=var(PSI),
+                                            SD_PSI=sqrt(Var_PSI))
+
+lot_summary <- suscoil_data %>% group_by(Manufacturing_Lot) %>% summarize(Mean_PSI=mean(PSI),
+                                            Median_PSI=median(PSI),
+                                            Var_PSI=var(PSI),
+                                            SD_PSI=sqrt(Var_PSI),
+                                            .groups = 'keep')
+
+# box plots to show outliers
+plt <- ggplot(suscoil_data,aes(x=Manufacturing_Lot,y=PSI)) #import dataset into ggplot2
+plt + geom_boxplot(outlier.colour = "red", outlier.shape = 1) + theme(axis.text.x=element_text(angle=45,hjust=1)) #add boxplot and rotate x-axis labels 45 degrees
