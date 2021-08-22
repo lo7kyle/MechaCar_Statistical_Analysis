@@ -61,21 +61,17 @@ When looking at the total summary, the suspension coils meet the manufacturing s
 #### Technical Analysis:
 The purpose of a t-test is to determine whether there is a statistical difference between the means of a sample dataset and a hypothesized population dataset. If we take the full population dataset and compare it to the sample of itself, we are checking if the dataset is normally distributed. If we take a sample dataset, the distribution should be similar to the full population dataset. Below are the plots of the sample and the population normal distribution. I used the base 10 log for a more consistent scaling when plotting because if the number used is too high, it is more prone to outlier influence.    
 
-![Normal Distribution Population](https://github.com/lo7kyle/MechaCar_Statistical_Analysis/blob/main/Resources/Boxplot%20of%20Lots.png) 
-![Normal Distribution Sample](https://github.com/lo7kyle/MechaCar_Statistical_Analysis/blob/main/Resources/Boxplot%20of%20Lots.png) 
+![Normal Distribution Population](https://github.com/lo7kyle/MechaCar_Statistical_Analysis/blob/main/Resources/NormalDistribution_full.png) 
+![Normal Distribution Sample](https://github.com/lo7kyle/MechaCar_Statistical_Analysis/blob/main/Resources/NormalDistribution_sample.png) 
 
 Looking at the console output between the sample and the population, we also see that the p-value is 0.6075 and the t value is 0.51. The greater the t value the greater the size of the difference relative to the variation in our sample data. In other words, we can see the T value as a value to describe degrees of freedom from 0 or the middle of the normal distribution. The P value tells us that we don't have enough evidence to reject the null hypothesis that states the two means are statistically similar. Looking at the lot comparisons we see that the P value for lot 1 and 2 have enough evidence for us to reject our null hypothesis and has a higher degree of freedom than lot 3. 
 
 
-![T-Test Pop vs Sample](https://github.com/lo7kyle/MechaCar_Statistical_Analysis/blob/main/Resources/Boxplot%20of%20Lots.png) 
-![T-Test Pop vs Lots](https://github.com/lo7kyle/MechaCar_Statistical_Analysis/blob/main/Resources/Boxplot%20of%20Lots.png) 
+![T-Test Pop vs Sample](https://github.com/lo7kyle/MechaCar_Statistical_Analysis/blob/main/Resources/t-test_full_sample.PNG) 
+![T-Test Pop vs Lots](https://github.com/lo7kyle/MechaCar_Statistical_Analysis/blob/main/Resources/lot_ttest.PNG) 
 
 #### Written Summary:
 Summarizing the analysis, we see that the t test of our sample and our population data shows that there isn't enough evidence to reject our null hypothesis. Looking back at the plots we see that both the sample and population normal distribution share similar shape however the sample might be more skewed to either the right or left depending on the sample. Comparing the 3 lots we see that lots 1 and 2 have enough evidence to reject our null hypothesis since they both have a p-value less than 0.05. This means lot 1 and 2 are statistically different than the population. When looking at lot 3 the p value is 0.15 and means we can't reject our null hypothesis and would mean that the two means are statistically similar.
 
 ### Study Design: MechaCar vs Competition
-#### Technical Analysis:
-#### Written Summary:
 
-
-![Image Link](https://github.com/lo7kyle/bikesharing/blob/main/resources/gender%20dash.PNG) 

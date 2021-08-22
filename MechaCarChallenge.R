@@ -61,4 +61,17 @@ plt + geom_density() #visualize distribution using density plot
 # T test for comparing total dataset to sample dataset
 t.test((sample_table$PSI),mu=mean((suscoil_data$PSI))) #compare sample versus population means
 
+# filter out the different lots
+lot1 <- subset(suscoil_data, Manufacturing_Lot == "Lot1") 
+lot2 <- subset(suscoil_data, Manufacturing_Lot == "Lot2") 
+lot3 <- subset(suscoil_data, Manufacturing_Lot == "Lot3")
+
+ttest1 = t.test((lot1$PSI),mu=mean((suscoil_data$PSI))) #compare sample versus population means
+ttest2 = t.test((lot2$PSI),mu=mean((suscoil_data$PSI))) #compare sample versus population means
+ttest3 = t.test((lot3$PSI),mu=mean((suscoil_data$PSI))) #compare sample versus population means
+
+ttest1
+ttest2
+ttest3
+
 
